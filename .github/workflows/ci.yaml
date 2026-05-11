@@ -24,6 +24,10 @@ jobs:
         uses: actions/checkout@v6
         with:
           persist-credentials: false
+      # - name: Set up PHP 8.5
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: "8.5.6"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
       - name: Build Docker images
@@ -49,8 +53,8 @@ jobs:
       - name: Check Mercure reachability
         run: curl -vI --insecure --fail-with-body https://localhost/.well-known/mercure?topic=test
       # Uncomment if Doctrine ORM is installed
-      # - name: Create test database
-      #   run: docker compose exec -T php bin/console -e test doctrine:database:create
+      - name: Create test database
+        run: docker compose exec -T php bin/console -e test doctrine:database:create
       # Uncomment if Doctrine Migrations is installed
       # - name: Run migrations
       #   run: docker compose exec -T php bin/console -e test doctrine:migrations:migrate --no-interaction
@@ -58,8 +62,8 @@ jobs:
       # - name: Run PHPUnit
       #   run: docker compose exec -T php bin/phpunit
       # Uncomment if Doctrine ORM is installed
-      # - name: Doctrine Schema Validator
-      #   run: docker compose exec -T php bin/console -e test doctrine:schema:validate
+      - name: Doctrine Schema Validator
+        run: docker compose exec -T php bin/console -e test doctrine:schema:validate
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -73,6 +77,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Set up PHP 8.5
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.5.6"
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v8
         env:
