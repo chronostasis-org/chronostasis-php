@@ -1,7 +1,6 @@
 # Chronostasis-PHP
 
 ## Getting Started
-
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
 2. Run `docker compose build --pull --no-cache` to build fresh images
 3. Run `docker compose up --wait` to set up and start a fresh Symfony project
