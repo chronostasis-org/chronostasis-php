@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/LuckyController.php
+// src/Controller/DemoController.php
 
 namespace App\Controller;
 
