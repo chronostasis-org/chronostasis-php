@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20260515105341 extends AbstractMigration
+final class Version20260515111650 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,15 +20,7 @@ final class Version20260515105341 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql(<<<'SQL'
-            CREATE TABLE "user" (
-              id UUID NOT NULL,
-              username VARCHAR(180) NOT NULL,
-              roles JSON NOT NULL,
-              password VARCHAR(255) NOT NULL,
-              PRIMARY KEY (id)
-            )
-        SQL);
+        $this->addSql('CREATE TABLE "user" (id UUID NOT NULL, username VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, PRIMARY KEY (id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_USERNAME ON "user" (username)');
     }
 
