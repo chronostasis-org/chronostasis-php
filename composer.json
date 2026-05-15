@@ -19,7 +19,8 @@
         "symfony/runtime": "8.0.*",
         "symfony/security-bundle": "8.0.*",
         "symfony/uid": "8.0.*",
-        "symfony/yaml": "8.0.*"
+        "symfony/yaml": "8.0.*",
+        "symfonycasts/verify-email-bundle": "^1.18"
     },
     "config": {
         "allow-plugins": {
